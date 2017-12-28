@@ -17,10 +17,10 @@
         </commentGenerator>    
     
         <!-- 数据库链接URL、用户名、密码 -->    
-        <jdbcConnection driverClass="${spring.datasource.driverClassName}"    
-                        connectionURL="${spring.datasource.url}"    
-                        userId="${spring.datasource.username}"    
-                        password="${spring.datasource.password}">    
+        <jdbcConnection driverClass="${spring.datasource.write.driverClassName}"    
+                        connectionURL="${spring.datasource.write.url}"    
+                        userId="${spring.datasource.write.username}"    
+                        password="${spring.datasource.write.password}">    
         </jdbcConnection>    
     
         <!--      

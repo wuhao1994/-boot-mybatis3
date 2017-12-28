@@ -11,8 +11,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.entity.User;
-import com.example.mapper.test1.UserMapper;
-import com.example.mapper.test2.UserMapper2;
 import com.example.service.UserService;
 
 
@@ -23,11 +21,6 @@ import com.example.service.UserService;
 public class WebController {
 	@Resource
 	private UserService userService;
-	@Autowired
-    private UserMapper user1Mapper;
-
-	@Autowired
-	private UserMapper2 user2Mapper;
 	@RequestMapping("/hello")
 	public String Hello(){
 		return "hello";

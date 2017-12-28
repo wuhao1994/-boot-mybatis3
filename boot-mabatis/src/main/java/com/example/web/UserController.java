@@ -9,8 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.entity.User;
 import com.example.entity.UserExample;
-import com.example.mapper.test1.UserMapper;
-import com.example.mapper.test2.UserMapper2;
+import com.example.mapper.UserMapper;
 
 @RestController
 public class UserController {
@@ -19,7 +18,6 @@ public class UserController {
     private UserMapper user1Mapper;
 
 	@Autowired
-	private UserMapper2 user2Mapper;
 	
 	@RequestMapping("/getUsers")
 	public List<User> getUsers() {
@@ -29,12 +27,12 @@ public class UserController {
 	
     @RequestMapping("/getUser")
     public User getUser(Long id) {
-    	User user=user2Mapper.selectByPrimaryKey(id);
+    	User user=user1Mapper.selectByPrimaryKey(id);
         return user;
     }
     @RequestMapping("/add1")
     public void save1(User user) {
-        user2Mapper.insert(user);
+    	user1Mapper.insert(user);
     }
     
     @RequestMapping("/add")
@@ -44,7 +42,7 @@ public class UserController {
     
     @RequestMapping(value="update")
     public void update(User user) {
-        user2Mapper.updateByPrimaryKey(user);
+    	user1Mapper.updateByPrimaryKey(user);
     }
     
     @RequestMapping(value="/delete/{id}")
