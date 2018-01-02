@@ -31,7 +31,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 @Configuration
 @AutoConfigureAfter(DataSourceConfiguration.class)
-@MapperScan(basePackages="com.fei.springboot.dao")
+@MapperScan("com.example.mapper")
 public class MybatisConfiguration {
 
 	private static Logger log = LoggerFactory.getLogger(MybatisConfiguration.class);
@@ -114,7 +114,8 @@ public class MybatisConfiguration {
         //否则切换数据源时找不到正确的数据源
         targetDataSources.put(DataSourceType.write.getType(), writeDataSource);
         targetDataSources.put(DataSourceType.read.getType()+"1", readDataSource01);
-    
+        //默认写数据源
+        DataSourceContextHolder.setWrite();
         final int readSize = Integer.parseInt(readDataSourceSize);
    //     MyAbstractRoutingDataSource proxy = new MyAbstractRoutingDataSource(readSize);
         
